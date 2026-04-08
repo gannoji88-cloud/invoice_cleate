@@ -1,0 +1,18 @@
+<div id="all_wrap">
+<div id="wrapper">
+
+<%= render "form", sales_order: @sales_order %>
+
+<br>
+
+<div class="menu">
+<div class="menu_list">● MENU</div>
+<div class="menu_list"><%= link_to "ダッシュボード", dashboard_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "顧客一覧・登録", clients_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "商品一覧・登録", items_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上伝票入力", new_sales_order_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上履歴一覧", sales_orders_path, class: "btn" %></div>
+</div><!-- menu -->
+
+</div><!-- wrapper -->
+</div><!-- all_wrap -->

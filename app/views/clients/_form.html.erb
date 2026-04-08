@@ -1,0 +1,42 @@
+<%= form_with(model: client) do |form| %>
+  <% if client.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+        <% client.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="input_space" class="field">
+    <%= form.label :name, "● 顧客名", style: "display: block", class:"middle_title" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div id="input_space" class="field">
+    <%= form.label :manager_name, "● 担当者名", style: "display: block", class:"middle_title" %>
+    <%= form.text_field :manager_name %>
+  </div>
+
+  <div id="input_space" class="field">
+    <%= form.label :email, "● メールアドレス", style: "display: block", class:"middle_title" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div id="input_space" class="field">
+    <%= form.label :address, "● 所在地", style: "display: block", class:"middle_title" %>
+    <%= form.textarea :address %>
+  </div>
+
+  <div id="input_space" class="field">
+    <%= form.label :user_id, "● 登録者", style: "display: block", class:"middle_title" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit "登録・変更する", class:"btn_a" %>
+  </div>
+<% end %>

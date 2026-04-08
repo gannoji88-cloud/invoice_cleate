@@ -1,0 +1,28 @@
+<%= form_with(model: sales_order) do |f| %>
+
+    <div class="title">■□ 売上伝票入力 □■</div>
+
+    <div id="input_space" class="field">
+      <%= f.label :order_date, "● 売上日付", class: "middle_title" %>
+      <%= f.date_field :order_date, value: Time.now.strftime('%Y-%m-%d') %>
+    </div>
+
+    <div class="field">
+      <%= f.label :client_id, "● 顧客名", id: "input_space", class: "middle_title" %>
+      <% if current_user.clients.any? %>
+        <%= f.collection_select :client_id, current_user.clients, :id, :name, { prompt: "顧客を選択してください" }, {class: "select_space"} %>
+      <% else %>
+        <p class="menu" style="color: red;">※ 顧客が登録されていません。先に<%= link_to '顧客登録', new_client_path %>を行ってください。</p>
+      <% end %>
+    </div>
+
+    <div id="input_space" class="field">
+      <%= f.label :total_amount, "● 合計金額（円）", class: "middle_title" %>
+      <%= f.number_field :total_amount, placeholder: "10000" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "伝票を登録する", class: "btn_a" %>
+    </div>
+
+<% end %>

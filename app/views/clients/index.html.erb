@@ -1,0 +1,29 @@
+<div id="all_wrap">
+<div id="wrapper">
+
+<div class="title">■□ 顧客一覧 □■</div>
+
+<div class="menu" id="clients">
+  <% @clients.each do |client| %>
+    <%= render client %>
+    <p>
+      <%= link_to "▲顧客の詳細を見る▲", client %>
+    </p>
+  <% end %>
+</div>
+
+<div class="btn_a">
+<%= link_to "顧客を追加", new_client_path %>
+</div>
+
+<div class="menu">
+<div class="menu_list">● MENU</div>
+<div class="menu_list"><%= link_to "ダッシュボード", dashboard_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "顧客一覧・登録", clients_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "商品一覧・登録", items_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上伝票入力", new_sales_order_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上履歴一覧", sales_orders_path, class: "btn" %></div>
+</div><!-- menu -->
+
+</div><!-- wrapper -->
+</div><!-- all_wrap -->

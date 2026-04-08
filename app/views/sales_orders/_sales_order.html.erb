@@ -1,0 +1,17 @@
+<div class="cont_wrap" id="<%= dom_id sales_order %>" class="middle_title" style="margin-bottom: 20px; padding: 10px; border-bottom: 1px solid #eee;">
+  <div class="menu_list">
+    <strong>売上日付:</strong>
+    <%= sales_order.order_date.strftime('%Y/%m/%d') %>
+  </div>
+
+  <div class="menu_list">
+    <strong>顧客名:</strong>
+    <%= sales_order.client.name %>
+  </div>
+
+  <div class="menu_list">
+    <strong>合計金額:</strong>
+    <%= number_to_currency(sales_order.total_amount, unit: "￥", precision: 0) %>
+  </div>
+
+</div>

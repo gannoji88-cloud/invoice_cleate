@@ -1,0 +1,51 @@
+<div id="invoice_preview_wrap" style="background: white; padding: 40px; border: 1px solid #ccc; width: 800px; margin: 20px auto;">
+
+  <h1 style="text-align: center; letter-spacing: 10px;">御請求書</h1>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+    <div>
+      <p style="font-size: 1.2rem; border-bottom: 1px solid #000;">
+        <%= @sales_order.client.name %> 御中
+      </p>
+      <p>下記の通り、ご請求申し上げます。</p>
+    </div>
+
+    <div style="text-align: right;">
+      <p>請求日: <%= @sales_order.order_date.strftime('%Y年%m月%d日') %></p>
+      <p>発行者: <%= current_user.email %></p>
+      <p>（あなたの会社名などをここに記述）</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 30px; font-size: 1.5rem; border-bottom: 3px double #000; padding: 10px;">
+    ご請求金額： <span style="font-size: 2rem;"><%= number_to_currency(@sales_order.total_amount, unit: "￥", precision: 0) %></span>（税込）
+  </div>
+
+  <table style="width: 100%; border-collapse: collapse; margin-top: 30px;">
+    <thead>
+      <tr style="border: 1px solid #000; background: #f2f2f2;">
+        <th style="padding: 10px; border: 1px solid #000;">内容</th>
+        <th style="padding: 10px; border: 1px solid #000;">金額</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 1px solid #000;">
+        <td style="padding: 10px; border: 1px solid #000;">売上代金として</td>
+        <td style="padding: 10px; border: 1px solid #000; text-align: right;">
+          <%= number_to_currency(@sales_order.total_amount, unit: "￥", precision: 0) %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 50px; border: 1px solid #000; padding: 10px; width: 300px;">
+    <p>【お振込先】</p>
+    <p>〇〇銀行 △△支店</p>
+    <p>普通 1234567 カ）シャイン</p>
+  </div>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "一覧に戻る", sales_orders_path, class: "btn" %>
+  <button onclick="window.print();" class="btn">この画面を印刷・PDF保存</button>
+</div>

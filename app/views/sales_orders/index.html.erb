@@ -1,0 +1,49 @@
+<div id="all_wrap">
+  <div id="wrapper">
+    <div class="title">■□ 売上履歴一覧 □■</div>
+
+    <div id="sales_orders">
+      <%# ここで _sales_order.html.erb が繰り返し呼び出されます %>
+      <%= render @sales_orders %>
+    </div>
+
+    <div class="actions menu" style="margin-bottom: 20px; text-align: right;">
+      <%= link_to '＋ 新規伝票入力', new_sales_order_path, class: "btn" %>
+    </div>
+
+    <table class="menu" style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #eee;">
+          <th>売上日付</th>
+          <th>顧客名</th>
+          <th style="text-align: right;">合計金額</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @sales_orders.each do |sales_order| %>
+          <tr style="border-bottom: 1px solid #ccc;">
+            <td><%= sales_order.order_date.strftime('%Y/%m/%d') %></td>
+            <td><%= sales_order.client.name %></td>
+            <td style="text-align: right;"><%= number_to_currency(sales_order.total_amount, unit: "￥", precision: 0) %></td>
+            <td style="text-align: center;">
+              <%= link_to '詳細', sales_order %> |
+              <%= link_to 'プレビュー', preview_sales_order_path(sales_order), class: "btn" %>
+              <%= link_to '編集', edit_sales_order_path(sales_order) %> |
+              <%= link_to '削除', sales_order, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div style="text-align: right; font-size: 25px; margin-top: 10px; font-weight: bold;">
+    総売上金額：<%= number_to_currency(@sales_orders.sum(:total_amount), unit: "￥", precision: 0) %>
+    </div>
+
+    <div class="middle_title" style="margin-top: 30px;">
+      <%= link_to '← ダッシュボードへ戻る', root_path %>
+    </div>
+  </div>
+</div>

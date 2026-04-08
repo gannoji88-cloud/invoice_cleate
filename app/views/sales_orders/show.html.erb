@@ -1,0 +1,25 @@
+<div id="all_wrap">
+<div id="wrapper">
+
+<div class="title">■□ 売上履歴の詳細 □■</div>
+
+<%= render @sales_order %>
+
+<div>
+  <%= link_to "売上履歴を登録する", edit_sales_order_path(@sales_order), class:"middle_title" %>
+  <%= link_to "売上履歴の一覧に戻る", sales_orders_path, class:"middle_title" %>
+
+  <%= button_to "売上履歴を削除する", @sales_order, method: :delete, class:"btn_a" %>
+</div>
+
+<div class="menu">
+<div class="menu_list">● MENU</div>
+<div class="menu_list"><%= link_to "ダッシュボード", dashboard_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "顧客一覧・登録", clients_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "商品一覧・登録", items_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上伝票入力", new_sales_order_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上履歴一覧", sales_orders_path, class: "btn" %></div>
+</div><!-- menu -->
+
+</div><!-- wrapper -->
+</div><!-- all_wrap -->

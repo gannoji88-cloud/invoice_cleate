@@ -1,0 +1,29 @@
+<div id="all_wrap">
+<div id="wrapper">
+<div class="title">■□ 商品・サービス一覧 □■</div>
+
+<div class="listup">
+<div class="list_title fast" >商品名</div><div class="list_title next" >単価</div><div class="list_title next" >操作</div>
+</div>
+
+<% @items.each do |item| %>
+<div class="listup">
+<div class="list_title fast"><%= item.name %></div>
+<div class="list_title next"><%= number_to_currency(item.unit_price, unit: "￥", precision: 0) %></div>
+<div class="list_title next"><%= link_to '編集する', edit_item_path(item) %></div>
+</div>
+<% end %>
+
+<%= link_to '＋ 新規商品登録', new_item_path, class: "btn_a" %>
+
+<div class="menu">
+<div class="menu_list">● MENU</div>
+<div class="menu_list"><%= link_to "ダッシュボード", dashboard_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "顧客一覧・登録", clients_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "商品一覧・登録", items_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上伝票入力", new_sales_order_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上履歴一覧", sales_orders_path, class: "btn" %></div>
+</div><!-- menu -->
+
+</div><!-- wrapper -->
+</div><!-- all_wrap -->

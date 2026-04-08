@@ -1,0 +1,27 @@
+<div id="all_wrap">
+<div id="wrapper">
+
+<% content_for :title, "商品・サービスの登録・変更" %>
+
+<div class="title">■□ 商品・サービスの登録 □■</div>
+
+<%= render "form", item: @item %>
+
+<br>
+
+<div>
+  <%= link_to "商品・サービスの詳細", @item, class:"middle_title" %>
+  <%= link_to "商品・サービス一覧に戻る", items_path, class:"middle_title" %>
+</div>
+
+<div class="menu">
+<div class="menu_list">● MENU</div>
+<div class="menu_list"><%= link_to "ダッシュボード", dashboard_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "顧客一覧・登録", clients_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "商品一覧・登録", items_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上伝票入力", new_sales_order_path, class: "btn" %></div>
+<div class="menu_list"><%= link_to "売上履歴一覧", sales_orders_path, class: "btn" %></div>
+</div><!-- menu -->
+
+</div><!-- wrapper -->
+</div><!-- all_wrap -->
