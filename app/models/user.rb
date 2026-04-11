@@ -9,4 +9,7 @@ class User < ApplicationRecord
   #has_secure_password
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  # メールアドレスの正規表現バリデーション
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: { with: VALID_EMAIL_REGEX }
 end

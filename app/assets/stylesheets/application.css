@@ -50,6 +50,17 @@ body {
     padding: 1vh 1vw;
 }
 
+#login_mail_title, #login_pass_title {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.login_check {
+    font-size: 20px;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
 .title{
     padding: 2vh 0;
     font-size: 2vw;
@@ -148,4 +159,56 @@ body {
 
 .list{
   font-size: 20px;
+}
+
+@media screen and (max-width: 799px) {
+    #all_wrap{
+      padding: 0 0;
+    }
+
+    #wrapper{
+      width: 100%;
+      padding: 2vh 2vw;
+    }
+
+    .title{
+      font-size: 4vw;
+    }
+
+    #login_mail_title, #login_pass_title{
+      font-size: 4vw;
+    }
+
+    .middle_title{
+      font-size: 4vw;
+    }
+
+    .menu{
+      font-size: 4vw;
+    }
+
+    #input_space input, .select_space{
+      font-size: 4vw;
+    }
+
+    .login_check{
+      font-size: 4vw;
+    }
+
+    .login_button{
+      font-size: 4vw;
+    }
+
+    .list_title{
+      font-size: 5vw;
+    }
+
+    .list{
+      font-size: 4vw;
+    }
+
+    .btn_a{
+    width: 90%;
+    font-size: 4vw;
+    }
 }
